@@ -15,10 +15,10 @@ contract FundMe {
     }
 
     function fund() external payable {
-        if (msg.value < _getMinimumEthValue()) revert();
+        if (msg.value < getMinimumEthValue()) revert();
     }
 
-    function _getMinimumEthValue() internal view returns (uint256) {
+    function getMinimumEthValue() public view returns (uint256) {
         return (MINIMUM_USD_VALUE * 10**8) / _getEthPrice();
     }
 
